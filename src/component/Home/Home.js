@@ -4,7 +4,7 @@ import Carousel from '../Carousel/Carousel';
 const Home = () => {
     return (
         <div>
-            <Carousel></Carousel>
+            {/* <Carousel></Carousel> */}
         </div>
     );
 };
