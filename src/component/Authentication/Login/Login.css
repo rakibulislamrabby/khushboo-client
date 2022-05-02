@@ -27,7 +27,7 @@
 }
 
 .login-container input,
-.login-container button {
+.login-container .button {
     display: block;
     width: 100%;
     padding: 0;
@@ -53,7 +53,7 @@
         inset -6px -6px 6px white;
 }
 
-.login-container button {
+.login-container .button {
     color: white;
     margin-top: 20px;
     background: #068833;

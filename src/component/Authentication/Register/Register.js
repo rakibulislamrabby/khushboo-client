@@ -14,13 +14,15 @@ const Register = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    console.log(user);
+    const [updateProfile, updating, error2] = useUpdateProfile(auth);
+
     const handleRegister = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         createUserWithEmailAndPassword(email, password);
+        updateProfile({ displayName: name });
         navigate("/home");
     }
     if (loading) {
@@ -34,11 +36,11 @@ const Register = () => {
                     <input type="text" name='name' placeholder="Your name" />
                     <input type="email" name='email' placeholder="Your Email" />
                     <input type="password" name='password' placeholder="Your Password" />
-                    <button>Login</button>
+                    <button className='button'>Login</button>
                     <p>Already have Account??
                         <Link to="/login">Please Login</Link></p>
                 </form>
-                <button>Google</button>
+                <button className='button'>Google</button>
             </div>
         </div >
     );
