@@ -2,8 +2,11 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useRef } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../../firebase_init';
+import Loading from '../../Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 import "./Login.css"
 
 const Login = () => {
@@ -24,16 +27,19 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     //Reset password hooks
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
-    let errorElement;
+    let errorShow;
     if (error) {
-        errorElement = <p className='text-danger'>Error: {error?.message} {error?.message}</p>
+        errorShow = <p className='text-danger'>Error: {error?.message}</p>
     }
     const handleSubmit = event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passRef.current.value;
         signInWithEmailAndPassword(email, password);
-        navigate("/home")
+
+    }
+    if (loading) {
+        return <Loading></Loading>
     }
     if (user) {
         navigate(from, { replace: true });
@@ -49,10 +55,10 @@ const Login = () => {
         console.log("email", email);
         if (email) {
             sendPasswordResetEmail(email);
-            alert('Sent email');
+            toast('Sent email');
         }
         else {
-            alert("please enter your email")
+            toast("please enter your email")
         }
         navigate("/login")
     }
@@ -64,14 +70,14 @@ const Login = () => {
             <form onSubmit={handleSubmit} className="login-form">
                 <input ref={emailRef} type="text" placeholder="Your Email" />
                 <input ref={passRef} type="password" placeholder="Your Password" />
-                {errorElement}
+                {errorShow}
                 <button type='submit' className='button'>Login</button>
                 <p>New to Khushboo??
                     <Link to="/register">Sign up First</Link></p>
             </form>
             <p>Forgate PassWord? <button className='btn btn-link text-success text-decoration-none ' onClick={resetPassword}>Reset Password</button></p>
-            <button className='button'>Google</button>
-
+            <SocialLogin></SocialLogin>
+            <ToastContainer />
         </div>
 
     );

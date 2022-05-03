@@ -1,6 +1,6 @@
 import React from 'react';
-import banner1 from "../../images/banner1.jpg"
-import banner2 from "../../images/banner2.jpeg"
+import banner1 from "../../images/banner1.jpeg"
+import banner2 from "../../images/banner2.jpg"
 import banner3 from "../../images/banner3.jpeg"
 
 const Carousel = () => {

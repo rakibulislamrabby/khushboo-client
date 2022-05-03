@@ -1,8 +1,8 @@
 .login-container {
     position: relative;
-    width: 350px;
+    width: 400px;
     margin: 2rem auto;
-    height: 450px;
+    height: 500px;
     padding: 40px;
     box-sizing: border-box;
     border-radius: 20px;
@@ -28,6 +28,7 @@
 
 .login-container input,
 .login-container .button {
+    padding-bottom: 20px;
     display: block;
     width: 100%;
     padding: 0;
@@ -56,6 +57,7 @@
 .login-container .button {
     color: white;
     margin-top: 20px;
+    
     background: #068833;
     /* background: #1da1f2; */
     height: 40px;
