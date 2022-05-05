@@ -15,8 +15,6 @@ const Login = () => {
     const passRef = useRef("");
     const location = useLocation();
 
-    //global variable
-
 
     let from = location.state?.from?.pathname || "/";
     const [
