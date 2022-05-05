@@ -17,8 +17,7 @@
     "description": "Skeletal muscle is the most adaptable tissue in your body. When your muscles are injured this way, satellite cells on the outside of the muscle fibers become activated. They attempt to repair the damage by joining together and, as a result, increasing the muscle fiber",
     "img": "https://www.ahsanfragrances.com/wp-content/uploads/2020/12/Malalki_Shaikah_20ml-300x300.jpg"
   },
-  {
-    "id": 3,
+  { "id": 3,
     "name": "AHSAN FRANGIPANI LIVE FRESH",
     "price": "1099",
     "quantity":"8",
@@ -26,7 +25,7 @@
     "description": "Regular exercise is one of the best things you can do for your health. It has many benefits,and reducing your risk for many chronic diseases. There are many different types of exercise,t is important that you pick the right types for you.This Service would be have great in your health. ",
     "img": "https://www.ahsanfragrances.com/wp-content/uploads/2020/12/Ahsan_Frangipani_30ml-300x300.jpg"
   },
-  {
+  { 
     "id": 4,
     "name": "AHSAN ASEEL MALAKI 20ML",
     "price": "200",
@@ -35,7 +34,7 @@
     "description": "Regular exercise is one of the best things you can do for your health. It has many benefits,and reducing your risk for many chronic diseases. There are many different types of exercise,t is important that you pick the right types for you.This Service would be have great in your health. ",
     "img": "https://www.ahsanfragrances.com/wp-content/uploads/2020/12/Malalki_Aseel_20ml-300x300.jpg"
   },
-  {
+  { 
     "id": 5,
     "name": "AHSAN ATTERFULL 100ML",
     "price": "300",
@@ -44,7 +43,7 @@
     "description": "Regular exercise is one of the best things you can do for your health. It has many benefits,and reducing your risk for many chronic diseases. There are many different types of exercise,t is important that you pick the right types for you.This Service would be have great in your health. ",
     "img": "https://www.ahsanfragrances.com/wp-content/uploads/2020/12/Ahsan_Attarfull_100ml-300x300.jpg"
   },
-  {
+  { 
     "id": 6,
     "name": "LAVENDER AIR FRESHNER 250ML",
     "price": "140",
