@@ -17,7 +17,8 @@
     "description": "Skeletal muscle is the most adaptable tissue in your body. When your muscles are injured this way, satellite cells on the outside of the muscle fibers become activated. They attempt to repair the damage by joining together and, as a result, increasing the muscle fiber",
     "img": "https://www.ahsanfragrances.com/wp-content/uploads/2020/12/Malalki_Shaikah_20ml-300x300.jpg"
   },
-  { "id": 3,
+  { 
+    "id": 3,
     "name": "AHSAN FRANGIPANI LIVE FRESH",
     "price": "1099",
     "quantity":"8",

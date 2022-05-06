@@ -1,29 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import useProductDetails from '../../hooks/useProductDetails';
-import products from "./products.json"
+
+
 
 const Inventory = () => {
-    const { productId } = useParams();
-    const [service] = useProductDetails(productId);
+    const { productId } = useParams()
+    const [product, setProduct] = useState([]);
 
-    const { id, name, img, price, suppliername, quantity, description } = service;
-    console.log(service.img);
+    useEffect(() => {
+        const url = `http://localhost:5000/inventory/${productId}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setProduct(data));
+    }, [])
+
+
+    const { _id, name, img, price, suppliername, quantity, description } = product;
+
 
     return (
         <div className='container'>
             <h2 className='text-center text-success'>This is inventory section</h2>
-            <div class="card ps-4 pt-4">
-                <p>ID: {id}</p>
+            <div className="card ps-4 pt-4">
+                <p>ID: {_id}</p>
                 <h5>Name: {name}</h5>
-                <img src={img} class="card-img-top w-25" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title">Supplier Name: {suppliername}</h5>
+                <img src={img} className="card-img-top w-25" alt="..." />
+                <div className="card-body">
+                    <h5 className="card-title">Supplier Name: {suppliername}</h5>
                     <p>Price: {price}</p>
                     <p>Quantity: {quantity}</p>
                     <p>Description:---</p>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn btn-primary">Delivered</a>
+                    <p className="card-text"></p>
+                    <a href="#" className="btn btn-primary">Delivered</a>
                 </div>
             </div>
         </div>

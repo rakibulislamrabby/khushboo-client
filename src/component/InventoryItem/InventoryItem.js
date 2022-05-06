@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const InventoryItem = ({ item }) => {
-    const { id, name, img, price, suppliername, quantity, description } = item;
+    const { _id, name, img, price, suppliername, quantity, description } = item;
     const navigate = useNavigate();
     const navigatetoDisplayDetails = id => {
         navigate(`/inventory/${id}`);
@@ -17,7 +17,7 @@ const InventoryItem = ({ item }) => {
                     <p>Price: {price}</p>
                     <p>Quantity: {quantity}pcs</p>
                     <p className="card-text">{description}</p>
-                    <button onClick={() => navigatetoDisplayDetails(id)} className="btn btn-primary">Stock Update</button>
+                    <button onClick={() => navigatetoDisplayDetails(_id)} className="btn btn-primary">Stock Update</button>
                 </div>
             </div>
         </div>
