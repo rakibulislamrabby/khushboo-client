@@ -6,9 +6,22 @@ import { Link } from 'react-router-dom';
 
 
 const ManageItem = () => {
-    const [items] = useProducts();
-    const handleDelete = () => {
+    const [items, setItems] = useProducts();
 
+    const handleDelete = (id) => {
+        const procced = window.confirm("Are you sure? Think again!!");
+        if (procced) {
+            const url = `http://localhost:5000/inventory/${id}`;
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    const remaining = items.filter(item => item._id !== id);
+                    setItems(remaining);
+                })
+        }
     }
     return (
         <div className='container '>
@@ -31,7 +44,7 @@ const ManageItem = () => {
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
                                 <td>{item.suppliername}</td>
-                                <td onClick={() => handleDelete()}><i className="fs-5 text-danger fa-solid fa-trash-can"></i></td>
+                                <td onClick={() => handleDelete(item._id)}><i className="fs-5 text-danger fa-solid fa-trash-can"></i></td>
                             </tr>
                         </tbody>
                     )
@@ -40,7 +53,7 @@ const ManageItem = () => {
             {/* <div className='mx-auto w-50'>
                 <Link to="/additem" className='btn btn-success w-50 text-center'>Add New Item</Link>
             </div> */}
-            <a className="border-1 bg-success rounded-3 mx-auto w-50 text-center text-white fw-bold nav-link" href="/addItem">Add New Item</a>
+            <Link className="border-1 bg-success rounded-3 mx-auto w-50 text-center text-white fw-bold nav-link" to="/addItem">Add New Item</Link>
         </div >
     );
 };
