@@ -4,6 +4,8 @@ import Login from './component/Authentication/Login/Login';
 import Register from './component/Authentication/Register/Register';
 import RequireAuth from './component/Authentication/RequireAuth/RequireAuth';
 import Blog from './component/Blog/Blog';
+import AddItem from './component/handleItemSection/AddItem/AddItem';
+import ManageItem from './component/handleItemSection/ManageItem/ManageItem';
 import Header from './component/Header/Header';
 import Home from './component/Home/Home';
 import Inventory from './component/Inventory/Inventory';
@@ -25,8 +27,17 @@ function App() {
             <Inventory></Inventory>
           </RequireAuth>
         }
-
         ></Route>
+        <Route path='/additem' element={
+          <RequireAuth>
+            <AddItem></AddItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='/manageitem' element={
+          <RequireAuth>
+            <ManageItem></ManageItem>
+          </RequireAuth>
+        }></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
         <Route path='*' element={<NotFoundPage></NotFoundPage>}></Route>
       </Routes>

@@ -20,20 +20,35 @@ const Inventory = () => {
 
     return (
         <div className='container'>
-            <h2 className='text-center text-success'>This is inventory section</h2>
-            <div className="card ps-4 pt-4">
-                <p>ID: {_id}</p>
-                <h5>Name: {name}</h5>
-                <img src={img} className="card-img-top w-25" alt="..." />
-                <div className="card-body">
+            <h2 className='text-center text-success mb-3'>Items Details</h2>
+            <div className='row'>
+                <div className="col-lg-4">
+                    <p>ID: {_id}</p>
+                    <h5>Name: {name}</h5>
+                    <p>{description}</p>
                     <h5 className="card-title">Supplier Name: {suppliername}</h5>
                     <p>Price: {price}</p>
                     <p>Quantity: {quantity}</p>
-                    <p>Description:---</p>
+
                     <p className="card-text"></p>
-                    <a href="#" className="btn btn-primary">Delivered</a>
+                    <a href="#" className="btn btn-success">Delivered</a>
                 </div>
+                <div className="col-lg-4">
+                    <img src={img} className="card-img-top" alt="..." />
+                </div>
+                <div className="col-lg-4">
+                    <h5>Restock the Items</h5>
+                    <input type="number" placeholder='Quantity' />
+                    <br />
+                    <button type='button' className='btn btn-success my-2'>Restock</button>
+
+                </div>
+
             </div>
+
+
+
+
         </div>
     );
 };
