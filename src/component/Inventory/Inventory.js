@@ -8,7 +8,7 @@ const Inventory = () => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${productId}`;
+        const url = `https://damp-island-69804.herokuapp.com/inventory/${productId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
@@ -22,18 +22,20 @@ const Inventory = () => {
         event.preventDefault();
         const Quantity = event.target.restock.value;
         const updateQuantity = parseInt(Quantity) + parseInt(quantity);
-        console.log(updateQuantity);
+        const newQuantity = { ...product, quantity: updateQuantity };
 
-        const url = `http://localhost:5000/inventory/${productId}`;
+
+        const url = `https://damp-island-69804.herokuapp.com/inventory/${productId}`;
         fetch(url, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(updateQuantity)
+            body: JSON.stringify(newQuantity)
         })
             .then(res => res.json())
             .then(data => {
+                setProduct(newQuantity);
                 console.log('success Update', data);
                 alert("updated user");
                 event.target.reset()
@@ -43,8 +45,21 @@ const Inventory = () => {
     const handleQuantity = () => {
         let newQuantity = quantity - 1;
         const newItem = { ...product, quantity: newQuantity };
-        const url = `http://localhost:5000/inventory/${productId}`
-        console.log(url);
+        const url = `https://damp-island-69804.herokuapp.com/inventory/${productId}`
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(newItem)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                setProduct(newItem);
+                console.log('success Update', data);
+                alert("Reduce Quantity");
+            })
     }
 
     return (

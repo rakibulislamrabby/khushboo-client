@@ -11,7 +11,7 @@ const ManageItem = () => {
     const handleDelete = (id) => {
         const procced = window.confirm("Are you sure? Think again!!");
         if (procced) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://damp-island-69804.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: "DELETE"
             })
