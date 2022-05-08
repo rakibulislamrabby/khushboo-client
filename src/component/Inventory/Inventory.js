@@ -17,6 +17,35 @@ const Inventory = () => {
 
     const { _id, name, img, price, suppliername, quantity, description } = product;
 
+    //update quantity
+    const handleRestock = (event) => {
+        event.preventDefault();
+        const Quantity = event.target.restock.value;
+        const updateQuantity = parseInt(Quantity) + parseInt(quantity);
+        console.log(updateQuantity);
+
+        const url = `http://localhost:5000/inventory/${productId}`;
+        fetch(url, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(updateQuantity)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('success Update', data);
+                alert("updated user");
+                event.target.reset()
+            })
+    }
+
+    const handleQuantity = () => {
+        let newQuantity = quantity - 1;
+        const newItem = { ...product, quantity: newQuantity };
+        const url = `http://localhost:5000/inventory/${productId}`
+        console.log(url);
+    }
 
     return (
         <div className='container'>
@@ -31,16 +60,18 @@ const Inventory = () => {
                     <p>Quantity: {quantity}</p>
 
                     <p className="card-text"></p>
-                    <a href="#" className="btn btn-success">Delivered</a>
+                    <a href="#" className="btn btn-success" onClick={handleQuantity}>Delivered</a>
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-4 ">
                     <img src={img} className="card-img-top" alt="..." />
                 </div>
-                <div className="col-lg-4">
+                <div className="col-lg-4 mt-5 pt-5 ps-5">
                     <h5>Restock the Items</h5>
-                    <input type="number" placeholder='Quantity' />
-                    <br />
-                    <button type='button' className='btn btn-success my-2'>Restock</button>
+                    <form onSubmit={handleRestock}>
+                        <input type="number" name='restock' placeholder='Quantity' />
+                        <br />
+                        <button type='submit' className='btn btn-success my-2'>Restock</button>
+                    </form>
 
                 </div>
 

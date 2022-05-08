@@ -44,7 +44,7 @@ const ManageItem = () => {
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
                                 <td>{item.suppliername}</td>
-                                <td onClick={() => handleDelete(item._id)}><i className="fs-5 text-danger fa-solid fa-trash-can"></i></td>
+                                <td><button className='btn btn-danger' onClick={() => handleDelete(item._id)}><i className="fs-5 text-white pe-2 fa-solid fa-trash-can"></i>Delete</button></td>
                             </tr>
                         </tbody>
                     )

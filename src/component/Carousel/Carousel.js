@@ -17,22 +17,22 @@ const Carousel = () => {
                     <div className="carousel-item active">
                         <img src={banner1} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
-                            <h5>First slide label</h5>
-                            <p>Some representative placeholder content for the first slide.</p>
+                            <h2>Khusboo Perfumes House</h2>
+                            <h5>A House of Authenticate Fragrance.Happy this Eid time with Khushboo.</h5>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img src={banner2} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
-                            <h5>Second slide label</h5>
-                            <p>Some representative placeholder content for the second slide.</p>
+                            <h3>Extra 20% Discount in this Ramadan</h3>
+                            <h5>Let's spread the sanctity of Ramadan with fragrance of Khushboo</h5>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img src={banner3} className="d-block w-100" alt="..." />
                         <div className="carousel-caption d-none d-md-block">
-                            <h5>Third slide label</h5>
-                            <p>Some representative placeholder content for the third slide.</p>
+                            <h3 className='text-black'>Ahsan brand that you are looking for your brand </h3>
+                            <h5 className='text-black'>Do business with Ahsan Perfumes.We have a wide variety of perfumes and we sell them at wholesale prices.</h5>
                         </div>
                     </div>
                 </div>

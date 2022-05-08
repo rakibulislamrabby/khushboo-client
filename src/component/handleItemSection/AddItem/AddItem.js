@@ -17,6 +17,7 @@ const AddItem = () => {
                 console.log(result);
             })
         alert("Successfully Added")
+        data.target.reset()
     }
 
     return (
