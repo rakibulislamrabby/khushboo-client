@@ -9,6 +9,7 @@ import ManageItem from './component/handleItemSection/ManageItem/ManageItem';
 import Header from './component/Header/Header';
 import Home from './component/Home/Home';
 import Inventory from './component/Inventory/Inventory';
+import MyItem from './component/MyItem/MyItem';
 import Footer from './component/Shared/Footer/Footer';
 import NotFoundPage from './component/Shared/NotFoundPage/NotFoundPage';
 
@@ -36,6 +37,11 @@ function App() {
         <Route path='/manageitem' element={
           <RequireAuth>
             <ManageItem></ManageItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='/myitem' element={
+          <RequireAuth>
+            <MyItem></MyItem>
           </RequireAuth>
         }></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>

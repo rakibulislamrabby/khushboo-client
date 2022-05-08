@@ -1,6 +1,7 @@
+import axios from 'axios';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import React, { useRef } from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React, { useEffect, useRef } from 'react';
+import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,6 +11,7 @@ import SocialLogin from '../SocialLogin/SocialLogin';
 import "./Login.css"
 
 const Login = () => {
+    const [user1] = useAuthState(auth)
     const navigate = useNavigate();
     const emailRef = useRef("");
     const passRef = useRef("");
@@ -30,17 +32,21 @@ const Login = () => {
     if (error) {
         errorShow = <p className='text-danger'>Error: {error?.message}</p>
     }
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passRef.current.value;
-        signInWithEmailAndPassword(email, password);
+        await signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post("https://damp-island-69804.herokuapp.com/login", { email });
+        localStorage.setItem("accessToken", data.accessToken);
+        navigate(from, { replace: true });
+
     }
     if (loading) {
         return <Loading></Loading>
     }
     if (user) {
-        navigate(from, { replace: true });
+
     }
 
     // if (!user) {
