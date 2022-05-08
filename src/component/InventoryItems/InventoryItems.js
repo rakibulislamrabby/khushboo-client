@@ -9,12 +9,13 @@ const InventoryItems = () => {
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])
+    const newItems = items.slice(0, 6);
     return (
         <div className='container mt-5 mb-0'>
             <h1 className='text-center text-success'>Inventory Items</h1>
             <div className='row'>
                 {
-                    items.map(item => <InventoryItem key={item._id}
+                    newItems.map(item => <InventoryItem key={item._id}
                         item={item}
                     ></InventoryItem>)
                 }
