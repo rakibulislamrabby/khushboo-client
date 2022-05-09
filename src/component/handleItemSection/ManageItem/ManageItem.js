@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useProducts from '../../../hooks/useProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 
 
@@ -50,9 +49,7 @@ const ManageItem = () => {
                     )
                 }
             </table>
-            {/* <div className='mx-auto w-50'>
-                <Link to="/additem" className='btn btn-success w-50 text-center'>Add New Item</Link>
-            </div> */}
+
             <Link className="border-1 bg-success rounded-3 mx-auto w-50 text-center text-white fw-bold nav-link" to="/addItem">Add New Item</Link>
         </div >
     );
