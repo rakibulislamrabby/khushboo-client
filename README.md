@@ -2,9 +2,7 @@
 
 khushboo Live site [View Live site](https://khushboo-faacc.web.app/).
 
-## Available Scripts
-
-What is the future in this website
+## What is the future in this website
 
 - This is warehouse website
 

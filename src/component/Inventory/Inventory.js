@@ -24,7 +24,6 @@ const Inventory = () => {
         const updateQuantity = parseInt(Quantity) + parseInt(quantity);
         const newQuantity = { ...product, quantity: updateQuantity };
 
-
         const url = `https://damp-island-69804.herokuapp.com/inventory/${productId}`;
         fetch(url, {
             method: "PUT",
